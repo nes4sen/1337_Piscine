@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin2.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yourLogin <yourLogin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:02:59 by yourLogin         #+#    #+#             */
-/*   Updated: 2024/02/04 17:30:22 by yourLogin        ###   ########.fr       */
+/*   Updated: 2024/02/04 18:00:50 by yourLogin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		len += ft_strlen(strs[i++]);
 	len += ft_strlen(sep) * (size - 1);
 	p = (char *)malloc(len + 1);
-	ft_allocat(size, strs, sep, p);
 	if (!p)
 	{
 		p = NULL;
 		return (NULL);
 	}
+	ft_allocat(size, strs, sep, p);
 	return (p);
 }
