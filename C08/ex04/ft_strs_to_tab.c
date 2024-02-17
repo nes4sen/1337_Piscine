@@ -6,7 +6,7 @@
 /*   By: duskblade <duskblade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:03:56 by duskblade         #+#    #+#             */
-/*   Updated: 2024/02/17 18:40:25 by yourLogin        ###   ########.fr       */
+/*   Updated: 2024/02/17 19:11:09 by yourLogin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ char	*ft_strdup(char *src)
 	}
 	p[i].size = 0;
 	return (p);
+	free(p);
 }
