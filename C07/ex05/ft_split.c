@@ -6,7 +6,7 @@
 /*   By: duskblade <duskblade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:23:16 by duskblade         #+#    #+#             */
-/*   Updated: 2024/03/14 18:27:26 by duskblade        ###   ########.fr       */
+/*   Updated: 2024/03/18 14:18:41 by duskblade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,8 @@ void	ft_strncpy(char *src, char *dest, int n)
 	dest[i] = '\0';
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_allocat(char *str, char *charset)
 {
-	int		i;
-	int		j;
 	int		count;
 	char	**words;
 
@@ -67,6 +65,16 @@ char	**ft_split(char *str, char *charset)
 	words = (char **)malloc(sizeof(char *) * count + 1);
 	if (!words)
 		return (NULL);
+	return (words);
+}
+
+char	**ft_split(char *str, char *charset)
+{
+	int		i;
+	int		j;
+	char	**words;
+
+	words = ft_allocat(str, charset);
 	i = 0;
 	while (*str)
 	{
@@ -75,12 +83,15 @@ char	**ft_split(char *str, char *charset)
 			str++;
 		while (str[j] && !(ft_strchr(charset, str[j])))
 			j++;
-		words[i] = (char *)malloc(sizeof(char) * (j + 1));
-		if (!(words[i]))
-			return (NULL);
-		ft_strncpy(str, words[i++], j);
+		if (*str)
+		{
+			words[i] = (char *)malloc(sizeof(char) * (j + 1));
+			if (!(words[i]))
+				return (NULL);
+			ft_strncpy(str, words[i++], j);
+		}
 		str += j;
 	}
-	words[count] = NULL;
+	words[i] = NULL;
 	return (words);
 }
