@@ -6,7 +6,7 @@
 /*   By: yourLogin <yourLogin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 16:50:37 by yourLogin         #+#    #+#             */
-/*   Updated: 2023/12/29 19:02:49 by yourLogin        ###   ########.fr       */
+/*   Updated: 2024/04/13 11:10:53 by yourLogin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,4 @@ void	ft_putnbr_base(int nbr, char *base)
 		ft_putnbr_base(nb / len, base);
 		ft_putnbr_base(nb % len, base);
 	}
-}
-int main()
-{
-	ft_putnbr_base(42, "0123456789abcdef");
 }
